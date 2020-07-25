@@ -1,9 +1,16 @@
+
+
 class Shoe
   attr_accessor :color, :size, :material, :condition
   attr_reader :brand
 
+  BRANDS = []
+
   def initialize(brand)
     @brand = brand
+    BRANDS << brand
+    # BRANDS.delete_if{ |e| BRANDS.count(e) > 1 }
+    BRANDS.uniq!
   end
 
   def cobble
@@ -12,25 +19,3 @@ class Shoe
   end
 
 end
-
-=begin
-class Book
-  attr_accessor :author, :page_count
-  attr_reader :title, :genre
-
-GENRES = []
-
-  def initialize(title)
-    @title = title
-  end
-
-  def turn_page
-    puts "Flipping the page...wow, you read fast!"
-  end
-
-def genre=(genre)
-  @genre = genre
-  GENRES << genre 
-end
-end
-=end
